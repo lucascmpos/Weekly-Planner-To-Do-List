@@ -1,0 +1,17 @@
+.delButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px;
+  gap: 4px;
+  width: 200px;
+  height: 44px;
+  background: #ff3d1f;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #ffffff;
+}

@@ -1,0 +1,150 @@
+
+.h {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash {
+  background: #ffffff;
+  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 15%;
+  gap: 50%;
+  position: relative;
+}
+
+.weekly {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 12px 0px 12px 24px;
+  background: #000000;
+  border-radius: 0px 14px 15px 0px;
+  width: 25%;
+  height: 30%;
+  margin-top: 2%;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 22px;
+  display: flex;
+  margin-right: 65%;
+  white-space:nowrap;
+}
+.text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  display: flex;
+  margin-top: 0%;
+  margin-right: 40%;
+}
+
+.logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-top: 4%;
+  margin-left: 16%;
+  width: 5%;
+  height: 50%;
+}
+
+.textLogout {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  list-style-type: none;
+}
+
+.logoutImage {
+  width: 25%;
+  padding-left: 20%;
+}
+
+.logo2 {
+  width: 10%;
+  position: absolute;
+  top: 15%;
+  right: 4%;
+}
+
+
+.action{
+   display: flex;
+   align-items: center;
+   gap: 3vh;
+   margin-top: 2%;
+}
+
+
+
+.task {
+  background: #ffffff;
+  border: 1px solid #fece00;
+  border-radius: 10px;
+  width: 20%;
+  margin-left: 2%;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.task::placeholder {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.selectStatus {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #fece00;
+  border-radius: 10px;
+  width: 20%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.time{
+    box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #fece00;
+  border-radius: 10px;
+  width: 8%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}

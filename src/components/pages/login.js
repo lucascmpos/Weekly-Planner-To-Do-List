@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
-import Button from "../Button/Button";
+import "../Buttons/button.css"
+import Button from "../Buttons/Button";
 import loginImage from "../../assets/login.png";
 import logoImage from "../../assets/uol.png";
 import iconImage from "../../assets/icon-user.png";
@@ -12,17 +12,20 @@ const Login = (props) => {
   const [input2, setInput2] = useState(false);
 
   return (
+  
     <body>
       <section className="forms">
         <header className="welcome">
           <h1>Welcome,</h1>
           <h2>To continue browsing safely, log in to the network.</h2>
         </header>
-        <form className="inputs">
+        <form className="inputs" action="./dashboard.js">
           <div className="wrapper">
             <span className="log">Login</span>
             <label className="username">
               <input
+                required
+                id="logInput"
                 type="text"
                 name="username1"
                 className="input2"
@@ -43,6 +46,8 @@ const Login = (props) => {
             </label>
             <label className="password">
               <input
+                required
+                id="logInput2"
                 type="password"
                 name="password3"
                 className="input2"
@@ -61,7 +66,7 @@ const Login = (props) => {
               />
             </label>
           </div>
-          <Button name="Log in" />
+          <Button name="Log in" className="button" />
         </form>
       </section>
       <div className="imagens">

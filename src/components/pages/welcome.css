@@ -28,7 +28,7 @@ body{
 .forms .wrapper{
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
  
 }
 
