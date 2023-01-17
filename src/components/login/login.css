@@ -1,60 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Mulish");
 
-
-.header{
-    width:110%;
-    margin-bottom: 50%;
-    margin-top: 30%;
+.log {
+  font-size: 2rem;
+  color: #e0e0e0;
+  font-weight: 400;
 }
 
-p{
-    font-size: 30px;
-    color:#E0E0E0;
-    font-weight: 400;
+
+label > img {
+  position: absolute;
+  right: -10%;
+  transition: 1s ease-in-out;
 }
 
-.input2{
-    background: #26292C;
-    border: 1px solid #FFFFFF;
-     border-radius: 50px;
-     padding: 6% 40%;
-    margin-left: 0%;
-    margin-bottom: 10%;
-}
+.onFocus{
+    right: 1rem;
+} 
 
-.iconimg{
-    position: absolute;
-    top: 54.5%;
-    right: 55%;
-    animation-name: user;
-    animation-duration: 1s;
+label {
+  position: relative;
 }
-
-.passimg{
-    position: absolute;
-    top: 62.5%;
-    right: 55%;
-    animation-name: pass;
-    animation-duration: 1s;
-}
-
-@keyframes user{
-    from{
-        top: 54.5%;
-        right: 55%;
-    }
-    to{
-        top: 54.5%;
-        right: 58%;
-    }
-}
-    @keyframes pass{
-        from{
-            top: 62.5%;
-            right: 55%;
-        }
-        to{
-            top: 62.5%;
-            right: 58%;
-        }
-    }

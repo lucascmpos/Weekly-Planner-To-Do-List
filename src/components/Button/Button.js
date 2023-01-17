@@ -4,7 +4,7 @@ import './button.css';
 const Button = props => {
     return (
         <button type="submit" className="button">
-            <span>Register Now</span>
+            <span>{props.name}</span>
         </button>
     );
 };
