@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import Container from "../Container";
+import Navbar from "../Navbar";
 import "./dashboard.css";
 import logoutImage from "../../assets/Vector.png";
-import logo2Image from "../../assets/uol2.png"
+import logo2Image from "../../assets/uol2.png";
 import Button from "../Buttons/Button";
 
 function Dashboard(props) {
@@ -38,12 +41,27 @@ function Dashboard(props) {
             <option value="6">Saturday</option>
             <option value="7">Sunday</option>
           </select>
-          <input className="time" type="time" min="00:00" max="23:59" required />
+          <input
+            className="time"
+            type="time"
+            min="00:00"
+            max="23:59"
+            required
+          />
 
-          <Button type="submit" className="addButton" name="+ Add to calendar" />
+          <Button
+            type="submit"
+            className="addButton"
+            name="+ Add to calendar"
+          />
           <Button type="reset" className="delButton" name="- Delete all" />
         </form>
-        <div className="board"></div>
+        <div className="board">
+          <Navbar />
+          <div className="timeCard">
+            <p className="timeText">Time</p>
+          </div>
+        </div>
       </main>
     </body>
   );

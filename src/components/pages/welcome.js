@@ -32,18 +32,13 @@ const Welcome = (props) => {
         mensagem: "Usuário cadastrado com sucesso!",
       });
 
-      localStorage.setItem('userData', JSON.stringify(user));
+      localStorage.setItem("userData", JSON.stringify(user));
 
       setUser({});
-      
 
       setTimeout(() => {
         navigate("/login");
-      }, 1000)
-      
-    
-
-
+      }, 1000);
     } else {
       setStatus({
         type: "error",
@@ -52,7 +47,7 @@ const Welcome = (props) => {
 
       setTimeout(() => {
         navigate("/welcome");
-      }, 1000)
+      }, 1000);
     }
   };
 
@@ -135,7 +130,6 @@ const Welcome = (props) => {
           <form
             className="inputs"
             onSubmit={addUser}
-            action="../login/login.js"
           >
             <div className="wrapper">
               <label className="labelfirstname">
@@ -227,7 +221,11 @@ const Welcome = (props) => {
                 />{" "}
               </label>{" "}
             </div>{" "}
-            <Button id="registerButton" name="Register Now" className="button" />
+            <Button
+              id="registerButton"
+              name="Register Now"
+              className="button"
+            />
           </form>{" "}
         </section>{" "}
         <div className="imagens">
