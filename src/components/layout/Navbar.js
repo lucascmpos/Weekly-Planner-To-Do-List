@@ -24,7 +24,7 @@ const Navbar = (props) => {
         <li onClick={props.weekCheck.saturday} className="saturdayCard">
           <p>Saturday</p>
         </li>
-        <li  className="sundayCard">
+        <li onClick={props.weekCheck.sunday} className="sundayCard">
           <p>Sunday</p>
         </li>
       </ul>
