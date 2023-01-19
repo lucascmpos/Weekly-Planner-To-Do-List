@@ -25,7 +25,6 @@ const Login = (props) => {
 
   const dataUser = localStorage.getItem("userData");
   const userDados = JSON.parse(dataUser);
-  console.log(userDados);
 
   const isValid = () => {
     return (
@@ -33,7 +32,6 @@ const Login = (props) => {
       password == userDados.password1
     );
   };
-  console.log(isValid())
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -62,7 +60,7 @@ const Login = (props) => {
     } else {
       setStatus({
         type: "error",
-        mensagem: "Username or password do not match the registration",
+        mensagem: "Wow, invalid username or password.<br>Please, try again!",
       });
     }
   };
@@ -76,9 +74,6 @@ const Login = (props) => {
           <h1>Welcome,</h1>
           <h2>To continue browsing safely, log in to the network.</h2>
         </header>
-        <p style={{ color: status.type == "success" ? "green" : "red" }}>
-            {status.mensagem}
-          </p>
         <form onSubmit={loginUser} className="inputs">
           <div className="wrapper">
             <span className="log">Login</span>
@@ -127,6 +122,9 @@ const Login = (props) => {
                 className={passAnim ? "onFocus" : ""}
               />
             </label>
+            <p style={{ color: status.type == "success" ? "green" : "orange" }}>
+            {status.mensagem}
+          </p>
           </div>
           <Button name="Log in" className="button" />
         </form>

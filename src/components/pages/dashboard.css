@@ -8,10 +8,10 @@
   box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 15%;
-  gap: 50%;
+  width: 114.5%;
+  gap: 11%;
   position: relative;
+  padding-bottom: 0%;
 }
 
 .weekly {
@@ -84,7 +84,9 @@
   display: flex;
   align-items: center;
   gap: 1vh;
+  justify-content: center;
   margin-top: 2%;
+  width: 112%;
 }
 
 .task {
@@ -152,6 +154,7 @@
   justify-content: center;
   background: #ffffff;
   margin-top: 0.2%;
+  width: 113%;
 }
 
 .list {
@@ -216,6 +219,7 @@ li {
   align-items: center;
   justify-content: left;
   color: blue;
+  cursor: pointer;
 }
 
 p {
@@ -246,5 +250,4 @@ p {
   font-size: 17px;
   padding-left: 28%;
   padding-top: 31%;
-     
 }

@@ -1,50 +1,35 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom"
 
 const Navbar = (props) => {
-    return(
-        <nav className="navbar">
-            <ul className="list">
-              <NavLink style={{ textDecoration: "none" }} to="/monday">
-                <li className="mondayCard">
-                  <p>Monday</p>
-                </li>
-              </NavLink>
+  return (
+    <nav className="navbar">
+      <ul className="list">
+        <li onClick={props.weekCheck.monday} className="mondayCard">
+          <p>Monday</p>
+        </li>
 
-              <NavLink style={{ textDecoration: "none" }} to="/tuesday">
-                <li className="tuesdayCard">
-                  <p>Tuesday</p>
-                </li>
-              </NavLink>
+        <li  onClick={props.weekCheck.tuesday} className="tuesdayCard">
+          <p>Tuesday</p>
+        </li>
 
-              <NavLink style={{ textDecoration: "none" }} to="/wednesday">
-                <li className="wednesdayCard">
-                  <p>Wednesday</p>
-                </li>
-              </NavLink>
-              <NavLink style={{ textDecoration: "none" }} to="/thursday">
-                <li className="thursdayCard">
-                  <p>Thursday</p>
-                </li>
-              </NavLink>
-              <NavLink style={{ textDecoration: "none" }} to="/friday">
-                <li className="fridayCard">
-                  <p>Friday</p>
-                </li>
-              </NavLink>
-              <NavLink style={{ textDecoration: "none" }} to="/saturday">
-                <li className="saturdayCard">
-                  <p>Saturday</p>
-                </li>
-              </NavLink>
-              <NavLink style={{ textDecoration: "none" }} to="/sunday">
-                <li className="sundayCard">
-                  <p>Sunday</p>
-                </li>
-              </NavLink>
-            </ul>
-          </nav>
-    )
-}
+        <li onClick={props.weekCheck.wednesday} className="wednesdayCard">
+          <p>Wednesday</p>
+        </li>
+        <li onClick={props.weekCheck.thursday} className="thursdayCard">
+          <p>Thursday</p>
+        </li>
+        <li onClick={props.weekCheck.friday} className="fridayCard">
+          <p>Friday</p>
+        </li>
+        <li onClick={props.weekCheck.saturday} className="saturdayCard">
+          <p>Saturday</p>
+        </li>
+        <li  className="sundayCard">
+          <p>Sunday</p>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;

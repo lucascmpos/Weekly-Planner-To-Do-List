@@ -113,6 +113,11 @@ const Welcome = (props) => {
         type: "error",
         mensagem: "Need to fill in the field to confirm the password!",
       });
+      if (user.password1 !== user.password2)
+      return setStatus({
+        type: "error",
+        mensagem: "The password must be the same in both password fields",
+      });
 
     return true;
   }
@@ -124,10 +129,6 @@ const Welcome = (props) => {
           <header className="welcome">
             <h1> Welcome, </h1> <h2> Please register to continue </h2>
           </header>
-          <p style={{ color: status.type == "success" ? "green" : "red" }}>
-            {status.mensagem}
-          </p>
-
           <form className="inputs" onSubmit={addUser}>
             <div className="wrapper">
               <label className="labelfirstname">
@@ -163,7 +164,7 @@ const Welcome = (props) => {
                   value={user.birthdate1}
                 />
               </label>
-              <label>
+              <label >
                 <span> Country </span>
                 <input
                   className="country"
@@ -174,9 +175,10 @@ const Welcome = (props) => {
                   value={user.country1}
                 />
               </label>
-              <label>
+              <label className="cityLabel">
                 <span> City </span>
                 <input
+                  id="city-input"
                   className="city"
                   type="text"
                   name="city1"
@@ -218,6 +220,9 @@ const Welcome = (props) => {
                   value={user.password2}
                 />
               </label>
+              <p style={{ color: status.type == "success" ? "green" : "orange" }}>
+            {status.mensagem}
+          </p>
             </div>
             <Button
               id="registerButton"
