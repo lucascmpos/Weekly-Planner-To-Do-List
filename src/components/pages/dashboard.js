@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import Container from "../Container";
-import Navbar from "../Navbar";
+import Navbar from "../layout/Navbar";
+import Days from "../days/Days";
 import "./dashboard.css";
 import logoutImage from "../../assets/Vector.png";
 import logo2Image from "../../assets/uol2.png";
 import Button from "../Buttons/Button";
 
 function Dashboard(props) {
+
+  const [data, setData] = useState({
+    dayName: 'monday'
+  });
+
+  
+
   return (
     <body className="h">
       <header className="dash">
@@ -58,6 +65,7 @@ function Dashboard(props) {
         </form>
         <div className="board">
           <Navbar />
+          <Days data={data} />
           <div className="timeCard">
             <p className="timeText">Time</p>
           </div>

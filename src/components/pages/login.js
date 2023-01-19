@@ -15,18 +15,59 @@ const Login = (props) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [status, setStatus] = useState({
+    type: "",
+    mensagem: "",
+  });
+
 
   const navigate = useNavigate();
 
+  const dataUser = localStorage.getItem("userData");
+  const userDados = JSON.parse(dataUser);
+  console.log(userDados);
 
-  const userDados = localStorage.getItem('userData')
+  const isValid = () => {
+    return (
+      username == userDados.firstname1 + userDados.lastname1 &&
+      password == userDados.password1
+    );
+  };
+  console.log(isValid())
 
-  if(userDados === username && userDados === password ){
-    navigate("/dashboard");
-  }
-  else{
-    navigate("/login");
-  }
+  const loginUser = async (e) => {
+    e.preventDefault();
+
+    if(!username){
+    setStatus({
+      type: "error",
+      mensagem: "user name needs to be filled",
+    });
+  return;}
+    if(!password){
+    setStatus({
+      type: "error",
+      mensagem: "password needs to be filled",
+    });
+    return;}
+    if (isValid()) {
+      setStatus({
+        type: "success",
+        mensagem: "User logged in successfully!",
+      });
+
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 2000);
+    } else {
+      setStatus({
+        type: "error",
+        mensagem: "Username or password do not match the registration",
+      });
+    }
+  };
+
+
 
   return (
     <body>
@@ -35,12 +76,14 @@ const Login = (props) => {
           <h1>Welcome,</h1>
           <h2>To continue browsing safely, log in to the network.</h2>
         </header>
-        <form  className="inputs">
+        <p style={{ color: status.type == "success" ? "green" : "red" }}>
+            {status.mensagem}
+          </p>
+        <form onSubmit={loginUser} className="inputs">
           <div className="wrapper">
             <span className="log">Login</span>
             <label className="username">
               <input
-                required
                 id="username"
                 type="text"
                 name="username"
@@ -64,7 +107,6 @@ const Login = (props) => {
             </label>
             <label className="password">
               <input
-                required
                 id="password"
                 type="password"
                 name="password"

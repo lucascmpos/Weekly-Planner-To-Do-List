@@ -6,9 +6,21 @@ import logoImage from "../../assets/uol.png";
 import { useNavigate } from "react-router-dom";
 
 const Welcome = (props) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    firstname1: "",
+    lastname1: "",
+    birthdate1: "",
+    country1: "",
+    city1: "",
+    email1: "",
+    password1: "",
+    password2: "",
+  });
 
-  const [status, setStatus] = useState({});
+  const [status, setStatus] = useState({
+    type: "",
+    mensagem: "",
+  });
 
   const navigate = useNavigate();
 
@@ -29,25 +41,34 @@ const Welcome = (props) => {
     if (saveDataForm) {
       setStatus({
         type: "success",
-        mensagem: "Usuário cadastrado com sucesso!",
+        mensagem: "User successfully registered!",
       });
 
       localStorage.setItem("userData", JSON.stringify(user));
 
-      setUser({});
+      setUser({
+        firstname1: "",
+        lastname1: "",
+        birthdate1: "",
+        country1: "",
+        city1: "",
+        email1: "",
+        password1: "",
+        password2: "",
+      });
 
       setTimeout(() => {
         navigate("/login");
-      }, 1000);
+      }, 2000);
     } else {
       setStatus({
         type: "error",
-        mensagem: "Erro: Usuário não cadastrado com sucesso!",
+        mensagem: "User register not successfully",
       });
 
       setTimeout(() => {
         navigate("/welcome");
-      }, 1000);
+      }, 2000);
     }
   };
 
@@ -55,42 +76,42 @@ const Welcome = (props) => {
     if (!user.firstname1)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo first name!",
+        mensagem: "Need to fill in the first name field!",
       });
     if (!user.lastname1)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo last name!",
+        mensagem: "Need to fill in the last name field!",
       });
     if (!user.birthdate1)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo birth!",
+        mensagem: "Need to fill in the birth field!",
       });
     if (!user.country1)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo country!",
+        mensagem: "Need to fill in the country field!",
       });
     if (!user.city1)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo city!",
+        mensagem: "Need to fill in the city field!",
       });
     if (!user.email1)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo email!",
+        mensagem: "You must fill in the email field!",
       });
     if (!user.password1)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo senha!",
+        mensagem: "Need to fill in the password field!",
       });
     if (!user.password2)
       return setStatus({
         type: "error",
-        mensagem: "Erro: Necessário preencher o campo de confirmar a senha!",
+        mensagem: "Need to fill in the field to confirm the password!",
       });
 
     return true;
@@ -101,39 +122,16 @@ const Welcome = (props) => {
       <body>
         <section className="forms">
           <header className="welcome">
-            <h1> Welcome, </h1> <h2> Please register to continue </h2>{" "}
-          </header>{" "}
-          {status.type === "success" ? (
-            <p
-              style={{
-                color: "green",
-              }}
-            >
-              {" "}
-              {status.mensagem}{" "}
-            </p>
-          ) : (
-            ""
-          )}{" "}
-          {status.type === "error" ? (
-            <p
-              style={{
-                color: "#ff0000",
-              }}
-            >
-              {" "}
-              {status.mensagem}{" "}
-            </p>
-          ) : (
-            ""
-          )}{" "}
-          <form
-            className="inputs"
-            onSubmit={addUser}
-          >
+            <h1> Welcome, </h1> <h2> Please register to continue </h2>
+          </header>
+          <p style={{ color: status.type == "success" ? "green" : "red" }}>
+            {status.mensagem}
+          </p>
+
+          <form className="inputs" onSubmit={addUser}>
             <div className="wrapper">
               <label className="labelfirstname">
-                <span> first name </span>{" "}
+                <span> first name </span>
                 <input
                   className="first"
                   type="text"
@@ -141,10 +139,10 @@ const Welcome = (props) => {
                   placeholder=" Your first name"
                   value={user.firstname1}
                   onChange={valueInput}
-                />{" "}
-              </label>{" "}
+                />
+              </label>
               <label>
-                <span> last name </span>{" "}
+                <span> last name </span>
                 <input
                   className="last"
                   type="text"
@@ -152,10 +150,10 @@ const Welcome = (props) => {
                   placeholder=" Your last name"
                   value={user.lastname1}
                   onChange={valueInput}
-                />{" "}
+                />
               </label>
               <label>
-                <span> birth date </span>{" "}
+                <span> birth date </span>
                 <input
                   className="birth"
                   type="date"
@@ -163,10 +161,10 @@ const Welcome = (props) => {
                   placeholder=" MM/DD/YY"
                   onChange={valueInput}
                   value={user.birthdate1}
-                />{" "}
+                />
               </label>
               <label>
-                <span> Country </span>{" "}
+                <span> Country </span>
                 <input
                   className="country"
                   type="text"
@@ -174,10 +172,10 @@ const Welcome = (props) => {
                   placeholder="Your Country"
                   onChange={valueInput}
                   value={user.country1}
-                />{" "}
+                />
               </label>
               <label>
-                <span> City </span>{" "}
+                <span> City </span>
                 <input
                   className="city"
                   type="text"
@@ -185,10 +183,10 @@ const Welcome = (props) => {
                   placeholder="Your City"
                   onChange={valueInput}
                   value={user.city1}
-                />{" "}
+                />
               </label>
               <label>
-                <span> e-mail </span>{" "}
+                <span> e-mail </span>
                 <input
                   className="email"
                   type="text"
@@ -196,10 +194,10 @@ const Welcome = (props) => {
                   placeholder="A valid e-mail here"
                   onChange={valueInput}
                   value={user.email1}
-                />{" "}
+                />
               </label>
               <label>
-                <span> password </span>{" "}
+                <span> password </span>
                 <input
                   className="pass1"
                   type="password"
@@ -207,10 +205,10 @@ const Welcome = (props) => {
                   placeholder="Your password"
                   onChange={valueInput}
                   value={user.password1}
-                />{" "}
+                />
               </label>
               <label>
-                <span> password </span>{" "}
+                <span> password </span>
                 <input
                   className="pass2"
                   type="password"
@@ -218,21 +216,21 @@ const Welcome = (props) => {
                   placeholder="Confirm your password"
                   onChange={valueInput}
                   value={user.password2}
-                />{" "}
-              </label>{" "}
-            </div>{" "}
+                />
+              </label>
+            </div>
             <Button
               id="registerButton"
               name="Register Now"
               className="button"
             />
-          </form>{" "}
-        </section>{" "}
+          </form>
+        </section>
         <div className="imagens">
           <img src={loginImage} alt="Imagem 1" className="main-image" />
           <img src={logoImage} alt="Imagem 2" className="logo" />
-        </div>{" "}
-      </body>{" "}
+        </div>
+      </body>
     </Fragment>
   );
 };

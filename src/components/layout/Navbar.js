@@ -1,11 +1,9 @@
 import React from "react";
-import Container from "./Container";
 import { Link, NavLink } from "react-router-dom"
 
 const Navbar = (props) => {
     return(
         <nav className="navbar">
-            <Container>
             <ul className="list">
               <NavLink style={{ textDecoration: "none" }} to="/monday">
                 <li className="mondayCard">
@@ -45,7 +43,6 @@ const Navbar = (props) => {
                 </li>
               </NavLink>
             </ul>
-            </Container>
           </nav>
     )
 }
