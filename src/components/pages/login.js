@@ -60,7 +60,7 @@ const Login = (props) => {
     } else {
       setStatus({
         type: "error",
-        mensagem: "Wow, invalid username or password.<br>Please, try again!",
+        mensagem: "Wow, invalid username or password. Please, try again!",
       });
     }
   };

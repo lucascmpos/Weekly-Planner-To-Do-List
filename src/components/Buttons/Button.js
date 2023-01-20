@@ -5,10 +5,10 @@ import './delButton.css'
 
 const Button = props => {
     return (
-        <button type={props.type} className={props.className}>
+        <button type={props.type} className={props.className} onClick={props.onClick}>
             <span>{props.name}</span>
         </button>
     );
 };
 
-export default Button
+export default Button;

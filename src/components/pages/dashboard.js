@@ -1,12 +1,15 @@
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment, useCallback, useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 import Navbar from "../layout/Navbar";
 import "./dashboard.css";
+
 import logoutImage from "../../assets/Vector.png";
 import logo2Image from "../../assets/uol2.png";
+import backImage from "../../assets/background.png";
+
 import Button from "../Buttons/Button";
-import Weather from "../layout/Weather";
+import Weather from "../layout/Weather/Weather";
 
 const Dashboard = (props) => {
   const [renderMonday, setRenderMonday] = useState(false);
@@ -16,6 +19,30 @@ const Dashboard = (props) => {
   const [renderFriday, setRenderFriday] = useState(false);
   const [renderSaturday, setRenderSaturday] = useState(false);
   const [renderSunday, setRenderSunday] = useState(false);
+
+  const [addTask, setAddTask] = useState([]);
+
+  const [taskInfo, setTaskInfo] = useState({
+    // id: '',
+    descricao: "",
+    dia: "",
+    hora: "",
+  });
+
+
+  const attCard = (taskInfo) => {
+    // @ts-ignore
+    setAddTask(backTask => [...backTask, taskInfo]);
+  console.log(addTask)
+  };
+
+  // const callback = useCallback(() => {
+  //   console.log("a");
+  // }, []);
+
+  const prevent = (event) => {
+    event.preventDefault();
+  };
 
   const weekCheck = {
     monday: () => {
@@ -80,81 +107,26 @@ const Dashboard = (props) => {
       setRenderFriday(false);
       setRenderSaturday(false);
       setRenderSunday(true);
-      }
+    },
   };
 
-  const Monday = [
-    {
-      hora: "11h00",
-      descricao: "Work on monday",
-      id: "1",
-    },
-    {
-      hora: "12h00",
-      descricao: "Daily on monday",
-      id: "2",
-    },
-  ];
-  const Tuesday = [{
-    hora: "12h00",
-    descricao: "Work on tuesday",
-    id: "1",
-  },
-  {
-    hora: "13h00",
-    descricao: "Daily on Tuesday",
-    id: "2",
-  },];
-  const Wednesday = [{
-    hora: "12h00",
-    descricao: "Wednesday",
-    id: "1",
-  },
-  {
-    hora: "13h00",
-    descricao: "b",
-    id: "2",
-  },];
-  const Thursday = [{
-    hora: "12h00",
-    descricao: "Thursday",
-    id: "1",
-  },
-  {
-    hora: "13h00",
-    descricao: "b",
-    id: "2",
-  },];
-  const Friday = [{
-    hora: "12h00",
-    descricao: "Friday",
-    id: "1",
-  },
-  {
-    hora: "13h00",
-    descricao: "b",
-    id: "2",
-  },];
-  const Saturday = [{
-    hora: "12h00",
-    descricao: "Saturday",
-    id: "1",
-  },
-  {
-    hora: "13h00",
-    descricao: "b",
-    id: "2",
-  },];
-  const Sunday = [{
-    hora: "12h00",
-    descricao: "Sunday",
-    id: "1",
-  },
-  {
-    hora: "13h00",
-    descricao: "b",
-    id: "2",
-  },];
+  let horas = new Date().toLocaleDateString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const [hora, setHora] = useState(horas);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      horas = new Date().toLocaleDateString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      setTimeout(horas);
+    }, 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="h">
@@ -165,8 +137,11 @@ const Dashboard = (props) => {
             Use this planner to organize your daily issues.
           </p>
         </div>
+        <div className="hora">{hora}</div>
         <Weather />
-        <img src={logo2Image} alt="Imagem 10" className="logo2" />
+        <NavLink to="/welcome">
+          <img src={logo2Image} alt="Imagem 10" className="logo2" />
+        </NavLink>
         <div className="logout">
           <Link to="/login">
             <img src={logoutImage} alt="Imagem 10" className="logoutImage" />
@@ -177,9 +152,22 @@ const Dashboard = (props) => {
         </div>
       </header>
       <main className="dashboard">
-        <form className="action">
-          <input className="task" type="text" placeholder="Task or issue" />
-          <select required className="selectStatus">
+        <form onSubmit={prevent} className="action">
+          <input
+            onChange={(event) => {
+              setTaskInfo({ ...taskInfo, descricao: event.target.value });
+            }}
+            className="task"
+            type="text"
+            placeholder="Task or issue"
+          />
+          <select
+            onChange={(event) => {
+              setTaskInfo({ ...taskInfo, dia: event.target.value });
+            }}
+            required
+            className="selectStatus"
+          >
             <option disabled value="unselected"></option>
             <option value="1">Monday</option>
             <option value="2">Tuesday</option>
@@ -190,6 +178,9 @@ const Dashboard = (props) => {
             <option value="7">Sunday</option>
           </select>
           <input
+            onChange={(event) => {
+              setTaskInfo({ ...taskInfo, hora: event.target.value });
+            }}
             className="time"
             type="time"
             min="00:00"
@@ -198,7 +189,8 @@ const Dashboard = (props) => {
           />
 
           <Button
-            type="submit"
+            onClick={() => attCard(taskInfo)}
+            type="button"
             className="addButton"
             name="+ Add to calendar"
           />
@@ -211,66 +203,130 @@ const Dashboard = (props) => {
           </div>
         </div>
         <div className="tasks">
+          <img src={backImage} alt="backImage" className="backImage" />
           <>
             {renderMonday &&
-              Monday.map((item, index) => (
-                <div key={index}>
-                  <span>{item.hora}<br /></span>
-                  <span>{item.descricao}</span>
+              addTask.filter(addTask => addTask.dia === "1").map((item, index) => (
+                <div className="inside" key={index}>
+                  <div className="hour">
+                    <span className="spanHour">
+                      {item.hora}
+                      <br />
+                    </span>
+                  </div>
+                  <div className="card">
+                    <div className="line">
+                      <span className="span">{item.descricao}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </>
           <>
             {renderTuesday &&
-              Tuesday.map((item, index) => (
-                <div key={index}>
-                  <span>{item.hora}<br /></span>
-                  <span>{item.descricao}</span>
+               addTask.filter(addTask => addTask.dia === "2").map((item, index) => (
+                <div className="inside" key={index}>
+                  <div className="hour">
+                    <span className="spanHour">
+                      {item.hora}
+                      <br />
+                    </span>
+                  </div>
+                  <div className="card">
+                    <div className="line">
+                      <span className="span">{item.descricao}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </>
           <>
             {renderWednesday &&
-              Wednesday.map((item, index) => (
-                <div key={index}>
-                  <span>{item.hora}<br /></span>
-                  <span>{item.descricao}</span>
+              addTask.filter(addTask => addTask.dia === "3").map((item, index) => (
+                <div className="inside" key={index}>
+                  <div className="hour">
+                    <span className="spanHour">
+                      {item.hora}
+                      <br />
+                    </span>
+                  </div>
+                  <div className="card">
+                    <div className="line">
+                      <span className="span">{item.descricao}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </>
           <>
             {renderThursday &&
-              Thursday.map((item, index) => (
-                <div key={index}>
-                  <span>{item.hora}<br /></span>
-                  <span>{item.descricao}</span>
+              addTask.filter(addTask => addTask.dia === "4").map((item, index) => (
+                <div className="inside" key={index}>
+                  <div className="hour">
+                    <span className="spanHour">
+                      {item.hora}
+                      <br />
+                    </span>
+                  </div>
+                  <div className="card">
+                    <div className="line">
+                      <span className="span">{item.descricao}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </>
           <>
             {renderFriday &&
-              Friday.map((item, index) => (
-                <div key={index}>
-                  <span>{item.hora}<br /></span>
-                  <span>{item.descricao}</span>
+              addTask.filter(addTask => addTask.dia === "5").map((item, index) => (
+                <div className="inside" key={index}>
+                  <div className="hour">
+                    <span className="spanHour">
+                      {item.hora}
+                      <br />
+                    </span>
+                  </div>
+                  <div className="card">
+                    <div className="line">
+                      <span className="span">{item.descricao}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </>
           <>
             {renderSaturday &&
-              Saturday.map((item, index) => (
-                <div key={index}>
-                  <span>{item.hora}<br /></span>
-                  <span>{item.descricao}</span>
+              addTask.filter(addTask => addTask.dia === "6").map((item, index) => (
+                <div className="inside" key={index}>
+                  <div className="hour">
+                    <span className="spanHour">
+                      {item.hora}
+                      <br />
+                    </span>
+                  </div>
+                  <div className="card">
+                    <div className="line">
+                      <span className="span">{item.descricao}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </>
           <>
             {renderSunday &&
-              Sunday.map((item, index) => (
-                <div key={index}>
-                  <span>{item.hora}<br /></span>
-                  <span>{item.descricao}</span>
+              addTask.filter(addTask => addTask.dia === "7").map((item, index) => (
+                <div className="inside" key={index}>
+                  <div className="hour">
+                    <span className="spanHour">
+                      {item.hora}
+                      <br />
+                    </span>
+                  </div>
+                  <div className="card">
+                    <div className="line">
+                      <span className="span">{item.descricao}</span>
+                    </div>
+                  </div>
                 </div>
               ))}
           </>

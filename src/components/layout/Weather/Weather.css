@@ -1,7 +1,6 @@
 .weatherDiv {
   display: flex;
   flex-direction: column;
-  padding-top: 0.5%;
   margin-left: 20%;
   align-content: center;
 }

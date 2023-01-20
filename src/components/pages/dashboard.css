@@ -21,7 +21,7 @@
   padding: 12px 0px 12px 24px;
   background: #000000;
   border-radius: 0px 14px 15px 0px;
-  width: 25%;
+  width: 30%;
   height: 30%;
   margin-top: 2%;
   flex-direction: column;
@@ -45,12 +45,27 @@
   padding: 0;
 }
 
+.hora {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 20px;
+  text-align: center;
+  color: #3b3e45;
+  order: 0;
+  flex-grow: 0;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
 .logout {
   display: flex;
   flex-direction: column;
   justify-content: right;
   margin-top: 4%;
-  margin-left: 16%;
+  margin-left: 0%;
   width: 5%;
   height: 50%;
 }
@@ -149,79 +164,10 @@
   line-height: 20px;
 }
 
-.navbar {
+.tasks {
   display: flex;
-  justify-content: center;
-  background: #ffffff;
-  margin-top: 0.2%;
-  width: 113%;
+  flex-direction: column;
 }
-
-.list {
-  display: flex;
-  list-style-type: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.mondayCard {
-  background: #ff0024;
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 9px 9px 0px 0px;
-}
-
-.tuesdayCard {
-  background: #ff8000;
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 9px 9px 0px 0px;
-}
-
-.wednesdayCard {
-  background: #ffce00;
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 9px 9px 0px 0px;
-}
-
-.thursdayCard {
-  background: rgba(255, 0, 36, 0.7);
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 9px 9px 0px 0px;
-}
-
-.fridayCard {
-  background: rgba(255, 128, 0, 0.7);
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 9px 9px 0px 0px;
-}
-
-.saturdayCard {
-  background: rgba(255, 206, 0, 0.7);
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 9px 9px 0px 0px;
-}
-
-.sundayCard {
-  background: rgba(255, 0, 36, 0.5);
-  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
-  border-radius: 9px 9px 0px 0px;
-}
-
-li {
-  margin-right: 0.5em;
-  font-family: "Mulish";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
-  width: 220px;
-  height: 33px;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  color: blue;
-  cursor: pointer;
-}
-
 p {
   color: #000000;
   padding-left: 5%;
@@ -250,4 +196,78 @@ p {
   font-size: 17px;
   padding-left: 28%;
   padding-top: 31%;
+}
+
+.spanHour {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.hour {
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: #ff0024;
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.line {
+  width: 14px;
+  height: 70px;
+  background: #ff0024;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.card {
+  display: flex;
+  width: 400px;
+  height: 70px;
+  background: linear-gradient(
+    112.83deg,
+    rgba(228, 240, 248, 0.42) 0%,
+    rgba(255, 255, 255, 0.336) 110.84%
+  );
+  border: 1px solid #ffffff;
+  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10.5px);
+  border-radius: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.span {
+  display: flex;
+  justify-content: left;
+  align-items: middle;
+  width: 442px;
+  margin-top: 50%;
+  margin-left: 200%;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 20px;
+  color: #333333;
+}
+
+.backImage {
+  position: absolute;
+  right: 0%;
+  top: 45%;
+}
+
+.inside {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2%;
+  margin-top: 1%;
 }

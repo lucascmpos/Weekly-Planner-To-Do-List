@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
-import "./Weather.css";
-import weatherIcon from "../../assets/cloud.png";
+import "../Weather/Weather.css";
+import weatherIcon from "../../../assets/cloud.png"
 
 const Weather = () => {
   const [dados, setDados] = useState({});

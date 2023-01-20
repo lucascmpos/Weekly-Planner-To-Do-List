@@ -18,4 +18,8 @@
   line-height: 20px;
   color: #ffffff;
   margin-left: 38%;
+  white-space: nowrap;
+  border-style:none;
+  cursor: pointer;
+
 }
