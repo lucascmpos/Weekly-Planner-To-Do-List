@@ -18,3 +18,7 @@
   cursor: pointer;
 
 }
+
+.delButton:active{
+background: rgba(126, 13, 13, 0.841);
+}

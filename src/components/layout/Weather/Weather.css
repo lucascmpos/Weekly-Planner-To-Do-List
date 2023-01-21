@@ -1,14 +1,16 @@
 .weatherDiv {
   display: flex;
   flex-direction: column;
-  margin-left: 20%;
-  align-content: center;
+  margin-left: 15%;
+  margin-top: 0.2%;
+  position: relative;
+  right: 20%;
+  align-content: flex-end;
 }
 
 .weatherTemp {
   display: flex;
   flex-direction: row;
-  padding-left: 10%;
   white-space: nowrap;
 }
 

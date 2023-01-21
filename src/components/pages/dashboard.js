@@ -1,3 +1,4 @@
+// @ts-ignore
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -11,6 +12,7 @@ import backImage from "../../assets/background.png";
 import Button from "../Buttons/Button";
 import Weather from "../layout/Weather/Weather";
 
+// @ts-ignore
 const Dashboard = (props) => {
   const [renderMonday, setRenderMonday] = useState(false);
   const [renderTuesday, setRenderTuesday] = useState(false);
@@ -23,22 +25,30 @@ const Dashboard = (props) => {
   const [addTask, setAddTask] = useState([]);
 
   const [taskInfo, setTaskInfo] = useState({
-    // id: '',
+    id: "",
     descricao: "",
     dia: "",
     hora: "",
   });
 
-
   const attCard = (taskInfo) => {
     // @ts-ignore
-    setAddTask(backTask => [...backTask, taskInfo]);
-  console.log(addTask)
+    setAddTask((backTask) => [...backTask, taskInfo]);
+    setTaskInfo({
+      ...taskInfo,
+      id: addTask.length + 1,
+    });
+    console.log(addTask);
   };
 
-  // const callback = useCallback(() => {
-  //   console.log("a");
-  // }, []);
+  const remTask = (id) => {
+    setAddTask(addTask.filter((desc) => desc.id !== id));
+  };
+
+  const remAllTask = (id) => {
+    setAddTask(addTask.filter((addTask) => addTask.dia == "2"));
+  };
+
 
   const prevent = (event) => {
     event.preventDefault();
@@ -109,23 +119,43 @@ const Dashboard = (props) => {
       setRenderSunday(true);
     },
   };
+  
+      
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+  
 
-  let horas = new Date().toLocaleDateString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+function suffix(i){
+  var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
 
-  const [hora, setHora] = useState(horas);
+
+const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
+
+  let dia = new Date().getDate();
+  let ano = new Date ().getFullYear();
+  let novadata= new Date();
+  let data = monthNames[novadata.getMonth()]+ " " + suffix(dia) + ", " + ano;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      horas = new Date().toLocaleDateString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-      setTimeout(horas);
-    }, 60 * 1000);
-    return () => clearInterval(interval);
+      setHora(new Date().toLocaleTimeString().slice(0, -3));
+    }, 60*1000);
+    return () => {
+      clearInterval(interval);
+    }
   }, []);
 
   return (
@@ -137,7 +167,10 @@ const Dashboard = (props) => {
             Use this planner to organize your daily issues.
           </p>
         </div>
-        <div className="hora">{hora}</div>
+        <div className="datas">
+        <span className="hora">{hora}</span><br></br>
+        <span className="data">{data}</span>
+        </div>
         <Weather />
         <NavLink to="/welcome">
           <img src={logo2Image} alt="Imagem 10" className="logo2" />
@@ -206,129 +239,249 @@ const Dashboard = (props) => {
           <img src={backImage} alt="backImage" className="backImage" />
           <>
             {renderMonday &&
-              addTask.filter(addTask => addTask.dia === "1").map((item, index) => (
-                <div className="inside" key={index}>
-                  <div className="hour">
-                    <span className="spanHour">
-                      {item.hora}
-                      <br />
-                    </span>
-                  </div>
-                  <div className="card">
-                    <div className="line">
-                      <span className="span">{item.descricao}</span>
+              addTask
+                // @ts-ignore
+                .filter((addTask) => addTask.dia == "1")
+                .map((item, index) => (
+                  <div className="inside" key={index}>
+                    <div className="hour">
+                      <span className="spanHour">
+                        {
+                          // @ts-ignore
+                          item.hora
+                        }
+                        <br />
+                      </span>
+                    </div>
+                    <div className="card">
+                      <div className="line">
+                        <span className="span">
+                          {
+                            // @ts-ignore
+                            item.descricao
+                          }
+                        </span>
+                      </div>
+                      <Button
+                        // @ts-ignore
+                        onClick={() => remTask(item.id)}
+                        type="button"
+                        className="insideButton"
+                        name="Delete"
+                      />
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </>
           <>
             {renderTuesday &&
-               addTask.filter(addTask => addTask.dia === "2").map((item, index) => (
-                <div className="inside" key={index}>
-                  <div className="hour">
-                    <span className="spanHour">
-                      {item.hora}
-                      <br />
-                    </span>
-                  </div>
-                  <div className="card">
-                    <div className="line">
-                      <span className="span">{item.descricao}</span>
+              addTask
+                // @ts-ignore
+                .filter((addTask) => addTask.dia == "2")
+                .map((item, index) => (
+                  <div className="inside" key={index}>
+                    <div className="hour">
+                      <span className="spanHour">
+                        {
+                          // @ts-ignore
+                          item.hora
+                        }
+                        <br />
+                      </span>
+                    </div>
+                    <div className="card">
+                      <div className="line">
+                        <span className="span">
+                          {
+                            // @ts-ignore
+                            item.descricao
+                          }
+                        </span>
+                      </div>
+                      <Button
+                        onClick={() => remTask(item.id)}
+                        type="button"
+                        className="insideButton"
+                        name="Delete"
+                      />
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </>
           <>
             {renderWednesday &&
-              addTask.filter(addTask => addTask.dia === "3").map((item, index) => (
-                <div className="inside" key={index}>
-                  <div className="hour">
-                    <span className="spanHour">
-                      {item.hora}
-                      <br />
-                    </span>
-                  </div>
-                  <div className="card">
-                    <div className="line">
-                      <span className="span">{item.descricao}</span>
+              addTask
+                // @ts-ignore
+                .filter((addTask) => addTask.dia == "3")
+                .map((item, index) => (
+                  <div className="inside" key={index}>
+                    <div className="hour">
+                      <span className="spanHour">
+                        {
+                          // @ts-ignore
+                          item.hora
+                        }
+                        <br />
+                      </span>
+                    </div>
+                    <div className="card">
+                      <div className="line">
+                        <span className="span">
+                          {
+                            // @ts-ignore
+                            item.descricao
+                          }
+                        </span>
+                      </div>
+                      <Button
+                        onClick={() => remTask(item.id)}
+                        type="button"
+                        className="insideButton"
+                        name="Delete"
+                      />
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </>
           <>
             {renderThursday &&
-              addTask.filter(addTask => addTask.dia === "4").map((item, index) => (
-                <div className="inside" key={index}>
-                  <div className="hour">
-                    <span className="spanHour">
-                      {item.hora}
-                      <br />
-                    </span>
-                  </div>
-                  <div className="card">
-                    <div className="line">
-                      <span className="span">{item.descricao}</span>
+              addTask
+                // @ts-ignore
+                .filter((addTask) => addTask.dia == "4")
+                .map((item, index) => (
+                  <div className="inside" key={index}>
+                    <div className="hour">
+                      <span className="spanHour">
+                        {
+                          // @ts-ignore
+                          item.hora
+                        }
+                        <br />
+                      </span>
+                    </div>
+                    <div className="card">
+                      <div className="line">
+                        <span className="span">
+                          {
+                            // @ts-ignore
+                            item.descricao
+                          }
+                        </span>
+                      </div>
+                      <Button
+                        onClick={() => remTask(item.id)}
+                        type="button"
+                        className="insideButton"
+                        name="Delete"
+                      />
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </>
           <>
             {renderFriday &&
-              addTask.filter(addTask => addTask.dia === "5").map((item, index) => (
-                <div className="inside" key={index}>
-                  <div className="hour">
-                    <span className="spanHour">
-                      {item.hora}
-                      <br />
-                    </span>
-                  </div>
-                  <div className="card">
-                    <div className="line">
-                      <span className="span">{item.descricao}</span>
+              addTask
+                // @ts-ignore
+                .filter((addTask) => addTask.dia == "5")
+                .map((item, index) => (
+                  <div className="inside" key={index}>
+                    <div className="hour">
+                      <span className="spanHour">
+                        {
+                          // @ts-ignore
+                          item.hora
+                        }
+                        <br />
+                      </span>
+                    </div>
+                    <div className="card">
+                      <div className="line">
+                        <span className="span">
+                          {
+                            // @ts-ignore
+                            item.descricao
+                          }
+                        </span>
+                      </div>
+                      <Button
+                        onClick={() => remTask(item.id)}
+                        type="button"
+                        className="insideButton"
+                        name="Delete"
+                      />
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </>
           <>
             {renderSaturday &&
-              addTask.filter(addTask => addTask.dia === "6").map((item, index) => (
-                <div className="inside" key={index}>
-                  <div className="hour">
-                    <span className="spanHour">
-                      {item.hora}
-                      <br />
-                    </span>
-                  </div>
-                  <div className="card">
-                    <div className="line">
-                      <span className="span">{item.descricao}</span>
+              addTask
+                // @ts-ignore
+                .filter((addTask) => addTask.dia == "6")
+                .map((item, index) => (
+                  <div className="inside" key={index}>
+                    <div className="hour">
+                      <span className="spanHour">
+                        {
+                          // @ts-ignore
+                          item.hora
+                        }
+                        <br />
+                      </span>
+                    </div>
+                    <div className="card">
+                      <div className="line">
+                        <span className="span">
+                          {
+                            // @ts-ignore
+                            item.descricao
+                          }
+                        </span>
+                      </div>
+                      <Button
+                        onClick={() => remTask(item.id)}
+                        type="button"
+                        className="insideButton"
+                        name="Delete"
+                      />
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </>
           <>
             {renderSunday &&
-              addTask.filter(addTask => addTask.dia === "7").map((item, index) => (
-                <div className="inside" key={index}>
-                  <div className="hour">
-                    <span className="spanHour">
-                      {item.hora}
-                      <br />
-                    </span>
-                  </div>
-                  <div className="card">
-                    <div className="line">
-                      <span className="span">{item.descricao}</span>
+              addTask
+                // @ts-ignore
+                .filter((addTask) => addTask.dia == "7")
+                .map((item, index) => (
+                  <div className="inside" key={index}>
+                    <div className="hour">
+                      <span className="spanHour">
+                        {
+                          // @ts-ignore
+                          item.hora
+                        }
+                        <br />
+                      </span>
+                    </div>
+                    <div className="card">
+                      <div className="line">
+                        <span className="span">
+                          {
+                            // @ts-ignore
+                            item.descricao
+                          }
+                        </span>
+                      </div>
+                      <Button
+                        onClick={() => remTask(item.id)}
+                        type="button"
+                        className="insideButton"
+                        name="Delete"
+                      />
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </>
         </div>
       </main>
