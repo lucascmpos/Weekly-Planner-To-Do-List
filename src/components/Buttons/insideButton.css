@@ -22,4 +22,9 @@
   display: flex;
   align-items: center;
   color: #ffffff;
+  
 }
+
+.insideButton:active{
+  background: rgba(126, 13, 13, 0.841);
+  }

@@ -1,5 +1,6 @@
+/* eslint-disable eqeqeq */
 // @ts-ignore
-import React, { Fragment, useCallback, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import Navbar from "../layout/Navbar";
@@ -14,6 +15,7 @@ import Weather from "../layout/Weather/Weather";
 
 // @ts-ignore
 const Dashboard = (props) => {
+  
   const [renderMonday, setRenderMonday] = useState(false);
   const [renderTuesday, setRenderTuesday] = useState(false);
   const [renderWednesday, setRenderWednesday] = useState(false);
@@ -21,6 +23,11 @@ const Dashboard = (props) => {
   const [renderFriday, setRenderFriday] = useState(false);
   const [renderSaturday, setRenderSaturday] = useState(false);
   const [renderSunday, setRenderSunday] = useState(false);
+
+  const [status, setStatus] = useState({
+    type: "",
+    mensagem: "",
+  });
 
   const [addTask, setAddTask] = useState([]);
 
@@ -33,6 +40,18 @@ const Dashboard = (props) => {
 
   const attCard = (taskInfo) => {
     // @ts-ignore
+    if(taskInfo.descricao === '' || taskInfo.dia === '' || taskInfo.hora === ''){
+      setStatus({
+        type: "error",
+        mensagem: "Fields need to be filled in. Please try again.",
+      });
+    }
+    else{
+      setStatus({
+        type: "",
+        mensagem: "",
+      });
+    // @ts-ignore
     setAddTask((backTask) => [...backTask, taskInfo]);
     setTaskInfo({
       ...taskInfo,
@@ -40,15 +59,11 @@ const Dashboard = (props) => {
     });
     console.log(addTask);
   };
+}
 
   const remTask = (id) => {
     setAddTask(addTask.filter((desc) => desc.id !== id));
   };
-
-  const remAllTask = (id) => {
-    setAddTask(addTask.filter((addTask) => addTask.dia == "2"));
-  };
-
 
   const prevent = (event) => {
     event.preventDefault();
@@ -229,6 +244,9 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
           />
           <Button type="reset" className="delButton" name="- Delete all" />
         </form>
+        <p style={{ color: status.type == "success" ? "green" : "orange" }}>
+            {status.mensagem}
+          </p>
         <div className="board">
           <Navbar weekCheck={weekCheck} />
           <div className="timeCard">
@@ -238,13 +256,13 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
         <div className="tasks">
           <img src={backImage} alt="backImage" className="backImage" />
           <>
-            {renderMonday &&
+          {renderMonday &&
               addTask
                 // @ts-ignore
                 .filter((addTask) => addTask.dia == "1")
                 .map((item, index) => (
                   <div className="inside" key={index}>
-                    <div className="hour">
+                    <div className="hourMonday">
                       <span className="spanHour">
                         {
                           // @ts-ignore
@@ -254,7 +272,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                       </span>
                     </div>
                     <div className="card">
-                      <div className="line">
+                      <div className="lineMonday">
                         <span className="span">
                           {
                             // @ts-ignore
@@ -263,7 +281,6 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                         </span>
                       </div>
                       <Button
-                        // @ts-ignore
                         onClick={() => remTask(item.id)}
                         type="button"
                         className="insideButton"
@@ -280,7 +297,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                 .filter((addTask) => addTask.dia == "2")
                 .map((item, index) => (
                   <div className="inside" key={index}>
-                    <div className="hour">
+                    <div className="hourTuesday">
                       <span className="spanHour">
                         {
                           // @ts-ignore
@@ -290,7 +307,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                       </span>
                     </div>
                     <div className="card">
-                      <div className="line">
+                      <div className="lineTuesday">
                         <span className="span">
                           {
                             // @ts-ignore
@@ -315,7 +332,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                 .filter((addTask) => addTask.dia == "3")
                 .map((item, index) => (
                   <div className="inside" key={index}>
-                    <div className="hour">
+                    <div className="hourWednesday">
                       <span className="spanHour">
                         {
                           // @ts-ignore
@@ -325,7 +342,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                       </span>
                     </div>
                     <div className="card">
-                      <div className="line">
+                      <div className="lineWednesday">
                         <span className="span">
                           {
                             // @ts-ignore
@@ -350,7 +367,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                 .filter((addTask) => addTask.dia == "4")
                 .map((item, index) => (
                   <div className="inside" key={index}>
-                    <div className="hour">
+                    <div className="hourThursday">
                       <span className="spanHour">
                         {
                           // @ts-ignore
@@ -360,7 +377,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                       </span>
                     </div>
                     <div className="card">
-                      <div className="line">
+                      <div className="lineThursday">
                         <span className="span">
                           {
                             // @ts-ignore
@@ -385,7 +402,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                 .filter((addTask) => addTask.dia == "5")
                 .map((item, index) => (
                   <div className="inside" key={index}>
-                    <div className="hour">
+                    <div className="hourFriday">
                       <span className="spanHour">
                         {
                           // @ts-ignore
@@ -395,7 +412,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                       </span>
                     </div>
                     <div className="card">
-                      <div className="line">
+                      <div className="lineFriday">
                         <span className="span">
                           {
                             // @ts-ignore
@@ -420,7 +437,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                 .filter((addTask) => addTask.dia == "6")
                 .map((item, index) => (
                   <div className="inside" key={index}>
-                    <div className="hour">
+                    <div className="hourSaturday">
                       <span className="spanHour">
                         {
                           // @ts-ignore
@@ -430,7 +447,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                       </span>
                     </div>
                     <div className="card">
-                      <div className="line">
+                      <div className="lineSaturday">
                         <span className="span">
                           {
                             // @ts-ignore
@@ -455,7 +472,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                 .filter((addTask) => addTask.dia == "7")
                 .map((item, index) => (
                   <div className="inside" key={index}>
-                    <div className="hour">
+                    <div className="hourSunday">
                       <span className="spanHour">
                         {
                           // @ts-ignore
@@ -465,7 +482,7 @@ const [hora, setHora] = useState(new Date().toLocaleTimeString().slice(0, -3));
                       </span>
                     </div>
                     <div className="card">
-                      <div className="line">
+                      <div className="lineSunday">
                         <span className="span">
                           {
                             // @ts-ignore

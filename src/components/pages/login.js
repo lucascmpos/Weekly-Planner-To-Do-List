@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+/* eslint-disable eqeqeq */
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import "../Buttons/button.css";

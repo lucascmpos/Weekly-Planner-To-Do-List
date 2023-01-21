@@ -217,6 +217,9 @@ p {
   padding-top: 31%;
 }
 
+
+
+
 .spanHour {
   font-family: "Mulish";
   font-style: normal;
@@ -228,7 +231,7 @@ p {
   text-align: center;
   color: #000000;
 }
-.hour {
+.hourMonday {
   box-sizing: border-box;
   width: 85px;
   height: 70px;
@@ -240,10 +243,125 @@ p {
   margin-right: 1%;
 }
 
-.line {
+.hourTuesday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: #FF8000;
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourWednesday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: #FFCE00;
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourThursday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.7);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourFriday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 128, 0, 0.7);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourSaturday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 206, 0, 0.7);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourSunday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.5);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+
+.lineMonday {
   width: 14px;
   height: 70px;
-  background: #ff0024;
+  background: #FF0024;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.lineTuesday {
+  width: 14px;
+  height: 70px;
+  background: #FF8000;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.lineWednesday {
+  width: 14px;
+  height: 70px;
+  background: #FFCE00;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.lineThursday{
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.7);
+  border-radius: 15px 0px 0px 15px;
+}
+
+.lineFriday {
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 128, 0, 0.7);
+  border-radius: 15px 0px 0px 15px;
+}
+
+.lineSaturday{
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 206, 0, 0.7);
+  border-radius: 15px 0px 0px 15px;
+}
+
+.lineSunday {
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.5);
   border-radius: 15px 0px 0px 15px;
 }
 
