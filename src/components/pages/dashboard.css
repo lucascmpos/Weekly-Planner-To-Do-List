@@ -368,7 +368,7 @@ p {
 
 .card {
   display: flex;
-  width: 400px;
+  width: 650px;
   background: linear-gradient(
     112.83deg,
     rgba(228, 240, 248, 0.42) 0%,
@@ -387,13 +387,14 @@ p {
   justify-content: left;
   align-items: middle;
   width: 442px;
-  margin-top: 50%;
+  margin-top: 15%;
   margin-left: 200%;
   font-family: "Mulish";
   font-style: normal;
   font-weight: 100;
-  font-size: 20px;
+  font-size: 18px;
   color: #333333;
+  word-break:break-all;
 }
 
 .backImage {
