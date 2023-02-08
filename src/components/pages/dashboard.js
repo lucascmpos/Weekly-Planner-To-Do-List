@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
 // @ts-ignore
 import React, { Fragment, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Navbar from "../layout/Navbar";
 import "./dashboard.css";
@@ -65,6 +65,10 @@ const Dashboard = (props) => {
 
   const remTask = (id) => {
     setAddTask(addTask.filter((desc) => desc.id !== id));
+  };
+
+  const remAllTask = () =>{
+    setAddTask(addTask.filter((task) => task.day !== taskInfo.day));
   };
 
   const prevent = (event) => {
@@ -186,6 +190,7 @@ const Dashboard = (props) => {
   }, []);
 
   return (
+    <body>
     <div className="h">
       <header className="dash">
         <div className="weekly">
@@ -200,9 +205,9 @@ const Dashboard = (props) => {
           <span className="data">{data}</span>
         </div>
         <Weather />
-        <NavLink to="/welcome">
+        <a href="https://compass.uol/pt/home/">
           <img src={logo2Image} alt="Imagem 10" className="logo2" />
-        </NavLink>
+          </a>
         <div className="logout">
           <Link to="/login">
             <img src={logoutImage} alt="Imagem 10" className="logoutImage" />
@@ -255,7 +260,7 @@ const Dashboard = (props) => {
             className="addButton"
             name="+ Add to calendar"
           />
-          <Button type="reset" className="delButton" name="- Delete all" />
+          <Button onClick={remAllTask} type="button" className="delButton" name="- Delete all" />
         </form>
         <p style={{ color: status.type == "success" ? "green" : "orange" }}>
           {status.mensagem}
@@ -402,7 +407,7 @@ const Dashboard = (props) => {
                             </span>
                           </div>
                           <Button
-                            onClick={() => remTask(item.id)}
+                            onClick={() => remTask(item.dia)}
                             type="button"
                             className="insideButton"
                             name="Delete"
@@ -521,6 +526,7 @@ const Dashboard = (props) => {
         </div>
       </main>
     </div>
+    </body>
   );
 };
 

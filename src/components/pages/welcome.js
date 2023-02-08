@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import "./welcome.css";
 import Button from "../Buttons/Button";
 import loginImage from "../../assets/login.png";
@@ -123,7 +123,6 @@ const Welcome = (props) => {
   }
 
   return (
-    <Fragment>
       <body>
         <section className="forms">
           <header className="welcome">
@@ -220,7 +219,7 @@ const Welcome = (props) => {
                   value={user.password2}
                 />
               </label>
-              <p style={{ color: status.type == "success" ? "green" : "orange" }}>
+              <p style={{ color: status.type === "success" ? "green" : "orange" }}>
             {status.mensagem}
           </p>
             </div>
@@ -232,11 +231,12 @@ const Welcome = (props) => {
           </form>
         </section>
         <div className="imagens">
-          <img src={loginImage} alt="Imagem 1" className="main-image" />
+        <a href="https://compass.uol/pt/home/">
           <img src={logoImage} alt="Imagem 2" className="logo" />
+          </a>
+          <img src={loginImage} alt="Imagem 1" className="main-image" />
         </div>
       </body>
-    </Fragment>
   );
 };
 

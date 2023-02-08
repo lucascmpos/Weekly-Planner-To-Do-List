@@ -131,7 +131,9 @@ const Login = (props) => {
       </section>
       <div className="imagens">
         <div className="logo">
+        <a href="https://compass.uol/pt/home/">
           <img src={logoImage} alt="Imagem 2" />
+          </a>
         </div>
         <div className="main-image">
           <img src={loginImage} alt="Imagem 1" />

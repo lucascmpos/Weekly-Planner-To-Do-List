@@ -48,6 +48,7 @@ body{
   .logo{
     position: absolute;
     margin-top: 2rem;
+    margin-left: 15rem;
   }
 
 .welcome{
