@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Mulish");
+
+.log {
+  font-size: 2rem;
+  color: #e0e0e0;
+  font-weight: 400;
+}
+
+.stats{
+  position: absolute;
+  margin-top: 10.5%;
+  margin-left: -4%;
+}
+
+.toWelcome{
+  display: flex;
+  position: relative;
+  right: 2.5%;
+}
+
+.toWelcomeImage{
+  width: 8%;
+  height: 30%;
+  position: relative;
+  top: 50%;
+  right: 55%;
+}
+
+.logo{
+  position: absolute;
+  margin-top: 2rem;
+  margin-left: 15rem;
+}
+
+label > img {
+  position: absolute;
+  right: -10%;
+  transition: 1s ease-in-out;
+}
+
+.onFocus{
+    right: 1rem;
+} 
+
+label {
+  position: relative;
+}
+
+.loading {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 5px solid orange;
+  border-top-color: purple;
+  animation: spin 0.5s infinite linear;
+  margin-left: 11%;
+  margin-top: 5%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-half {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+@keyframes color-change {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}

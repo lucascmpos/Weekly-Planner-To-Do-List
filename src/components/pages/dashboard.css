@@ -1,0 +1,460 @@
+.body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Mulish";
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.divUnderBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash {
+  background: #ffffff;
+  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  display: flex;
+  flex-direction: row;
+  width: 150.5%;
+  gap: 11%;
+  position: relative;
+  padding-bottom: 0%;
+}
+
+.weekly {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 12px 0px 12px 24px;
+  background: #000000;
+  border-radius: 0px 14px 15px 0px;
+  width: 100%;
+  height: 25%;
+  margin-top: 1.5%;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 22px;
+  display: flex;
+  margin-right: 65%;
+  white-space: nowrap;
+}
+.text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  display: flex;
+  margin-top: 0%;
+  margin-right: 47%;
+  padding: 0;
+}
+
+.datas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  right: 2%;
+}
+
+.hora {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 20px;
+  text-align: center;
+  color: #3b3e45;
+}
+
+.data {
+  width: 201px;
+  height: 20px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #3b3e45;
+}
+
+.logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  margin-top: 3%;
+  position: relative;
+  right: 26.8%;
+  width: 5%;
+  height: 50%;
+}
+
+.textLogout {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  list-style-type: none;
+}
+
+.loadingDashboard {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 5px solid orange;
+  border-top-color: purple;
+  animation: spin 0.5s infinite linear;
+  margin-left: 50%;
+}
+
+
+.logoutImage {
+  width: 35%;
+  padding-left: 32%;
+}
+
+.logo2 {
+  width: 7%;
+  position: absolute;
+  top: 17%;
+  right: 27%;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+  justify-content: center;
+  margin-top: 2%;
+  width: 112%;
+}
+
+.task {
+  background: #ffffff;
+  border: 1px solid #fece00;
+  border-radius: 10px;
+  width: 20%;
+  height: 5px;
+  margin-left: 2%;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.task::placeholder {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.selectStatus {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #fece00;
+  border-radius: 10px;
+  width: 15%;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.time {
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #fece00;
+  border-radius: 10px;
+  width: 8%;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+}
+p {
+  color: #000000;
+  padding-left: 5%;
+  display: flex;
+}
+
+.timeCard {
+  width: 85px;
+  height: 75px;
+  background: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+  border-radius: 10px;
+  margin-left: 2%;
+  margin-top: -1%;
+}
+
+.timeText {
+  width: 85px;
+  height: 75px;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 17px;
+  padding-left: 28%;
+  padding-top: 31%;
+}
+
+
+
+
+.spanHour {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+.hourmonday {
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: #ff0024;
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourtuesday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: #FF8000;
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourwednesday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: #FFCE00;
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourthursday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.7);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hourfriday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 128, 0, 0.7);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hoursaturday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 206, 0, 0.7);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+.hoursunday{
+  box-sizing: border-box;
+  width: 85px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.5);
+  border-bottom: 1px solid #dcdfe3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin-right: 1%;
+}
+
+
+.linemonday {
+  width: 14px;
+  height: 70px;
+  background: #FF0024;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.linetuesday {
+  width: 14px;
+  height: 70px;
+  background: #FF8000;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.linewednesday {
+  width: 14px;
+  height: 70px;
+  background: #FFCE00;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.linethursday{
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.7);
+  border-radius: 15px 0px 0px 15px;
+}
+
+.linefriday {
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 128, 0, 0.7);
+  border-radius: 15px 0px 0px 15px;
+}
+
+.linesaturday{
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 206, 0, 0.7);
+  border-radius: 15px 0px 0px 15px;
+}
+
+.linesunday {
+  width: 14px;
+  height: 70px;
+  background: rgba(255, 0, 36, 0.5);
+  border-radius: 15px 0px 0px 15px;
+}
+
+.card {
+  display: flex;
+  width: 650px;
+  background: linear-gradient(
+    112.83deg,
+    rgba(228, 240, 248, 0.42) 0%,
+    rgba(255, 255, 255, 0.336) 110.84%
+  );
+  border: 1px solid #ffffff;
+  box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10.5px);
+  border-radius: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.span {
+  display: flex;
+  justify-content: left;
+  align-items: middle;
+  width: 442px;
+  margin-top: 15%;
+  margin-left: 200%;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 18px;
+  color: #333333;
+  word-break:break-all;
+}
+
+.backImage {
+  position: absolute;
+  right: 0%;
+  top: 45%;
+}
+
+.inside {
+  display: flex;
+  flex-direction: row;
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+
+.scroll{
+  width: 112%;
+  height: 500px;
+  overflow: auto;
+}
+
+.scroll::-webkit-scrollbar{
+background: rgb(255, 255, 255);
+box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+border-radius: 22px;
+
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #DCDFE3;
+border-radius: 8px;
+} 
+
+.container{
+  display: flex;
+  flex-direction: column;
+}

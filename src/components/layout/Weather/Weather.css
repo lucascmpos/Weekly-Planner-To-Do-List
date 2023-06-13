@@ -1,0 +1,52 @@
+.weatherDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15%;
+  margin-top: 0.2%;
+  position: relative;
+  right: 20%;
+  align-content: flex-end;
+}
+
+.weatherTemp {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.weatherCity {
+  display: flex;
+  margin-left: 35%;
+  margin-bottom: -13%;
+  white-space: nowrap;
+}
+
+.weatherIcon {
+  display: flex;
+  width: 30%;
+  height: 30%;
+  margin-top: 12%;
+  margin-right: 2%;
+}
+
+.cityWeather {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #222222;
+  margin-top: 30%;
+}
+
+.temp {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+  color: #222222;
+  margin-top: 0%;
+}

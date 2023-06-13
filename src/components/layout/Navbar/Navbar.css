@@ -1,0 +1,79 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    margin-top: 0.2%;
+    width: 113%;
+  }
+  
+  .list {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+.mondayCard {
+    background: #ff0024;
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+  }
+  
+  .tuesdayCard {
+    background: #ff8000;
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+  }
+  
+  .wednesdayCard {
+    background: #ffce00;
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+  }
+  
+  .thursdayCard {
+    background: rgba(255, 0, 36, 0.7);
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+  }
+  
+  .fridayCard {
+    background: rgba(255, 128, 0, 0.7);
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+  }
+  
+  .saturdayCard {
+    background: rgba(255, 206, 0, 0.7);
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+  }
+  
+  .sundayCard {
+    background: rgba(255, 0, 36, 0.5);
+    box-shadow: 0px 4px 24px rgba(168, 168, 168, 0.25);
+    border-radius: 9px 9px 0px 0px;
+  }
+
+
+
+li {
+    margin-right: 0.5em;
+    font-family: "Mulish";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    width: 220px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: blue;
+    cursor: pointer;
+  }
+
+  li:active {
+    background-color: white;
+  }
+
