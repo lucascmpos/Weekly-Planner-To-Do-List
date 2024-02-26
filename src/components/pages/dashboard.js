@@ -38,7 +38,6 @@ const Dashboard = (props) => {
   });
 
   const attCard = (taskInfo) => {
-    // @ts-ignore
     if (
       taskInfo.descricao === "" ||
       taskInfo.dia === "" ||
@@ -53,7 +52,6 @@ const Dashboard = (props) => {
         type: "",
         mensagem: "",
       });
-      // @ts-ignore
       setAddTask((backTask) => [...backTask, taskInfo]);
       setTaskInfo({
         ...taskInfo,
@@ -190,7 +188,7 @@ const Dashboard = (props) => {
   }, []);
 
   return (
-    <body>
+    <div>
     <div className="h">
       <header className="dash">
         <div className="weekly">
@@ -279,14 +277,12 @@ const Dashboard = (props) => {
               <>
                 {renderMonday &&
                   addTask
-                    // @ts-ignore
                     .filter((addTask) => addTask.dia == "1")
                     .map((item, index) => (
                       <div className="inside" key={index}>
                         <div className="hourMonday">
                           <span className="spanHour">
                             {
-                              // @ts-ignore
                               item.hora
                             }
                             <br />
@@ -296,7 +292,6 @@ const Dashboard = (props) => {
                           <div className="lineMonday">
                             <span className="span">
                               {
-                                // @ts-ignore
                                 item.descricao
                               }
                             </span>
@@ -314,14 +309,12 @@ const Dashboard = (props) => {
               <>
                 {renderTuesday &&
                   addTask
-                    // @ts-ignore
                     .filter((addTask) => addTask.dia == "2")
                     .map((item, index) => (
                       <div className="inside" key={index}>
                         <div className="hourTuesday">
                           <span className="spanHour">
                             {
-                              // @ts-ignore
                               item.hora
                             }
                             <br />
@@ -331,7 +324,6 @@ const Dashboard = (props) => {
                           <div className="lineTuesday">
                             <span className="span">
                               {
-                                // @ts-ignore
                                 item.descricao
                               }
                             </span>
@@ -356,7 +348,6 @@ const Dashboard = (props) => {
                         <div className="hourWednesday">
                           <span className="spanHour">
                             {
-                              // @ts-ignore
                               item.hora
                             }
                             <br />
@@ -366,7 +357,6 @@ const Dashboard = (props) => {
                           <div className="lineWednesday">
                             <span className="span">
                               {
-                                // @ts-ignore
                                 item.descricao
                               }
                             </span>
@@ -384,14 +374,12 @@ const Dashboard = (props) => {
               <>
                 {renderThursday &&
                   addTask
-                    // @ts-ignore
                     .filter((addTask) => addTask.dia == "4")
                     .map((item, index) => (
                       <div className="inside" key={index}>
                         <div className="hourThursday">
                           <span className="spanHour">
                             {
-                              // @ts-ignore
                               item.hora
                             }
                             <br />
@@ -401,7 +389,6 @@ const Dashboard = (props) => {
                           <div className="lineThursday">
                             <span className="span">
                               {
-                                // @ts-ignore
                                 item.descricao
                               }
                             </span>
@@ -419,14 +406,12 @@ const Dashboard = (props) => {
               <>
                 {renderFriday &&
                   addTask
-                    // @ts-ignore
                     .filter((addTask) => addTask.dia == "5")
                     .map((item, index) => (
                       <div className="inside" key={index}>
                         <div className="hourFriday">
                           <span className="spanHour">
                             {
-                              // @ts-ignore
                               item.hora
                             }
                             <br />
@@ -436,7 +421,6 @@ const Dashboard = (props) => {
                           <div className="lineFriday">
                             <span className="span">
                               {
-                                // @ts-ignore
                                 item.descricao
                               }
                             </span>
@@ -454,14 +438,12 @@ const Dashboard = (props) => {
               <>
                 {renderSaturday &&
                   addTask
-                    // @ts-ignore
                     .filter((addTask) => addTask.dia == "6")
                     .map((item, index) => (
                       <div className="inside" key={index}>
                         <div className="hourSaturday">
                           <span className="spanHour">
                             {
-                              // @ts-ignore
                               item.hora
                             }
                             <br />
@@ -471,7 +453,6 @@ const Dashboard = (props) => {
                           <div className="lineSaturday">
                             <span className="span">
                               {
-                                // @ts-ignore
                                 item.descricao
                               }
                             </span>
@@ -489,14 +470,12 @@ const Dashboard = (props) => {
               <>
                 {renderSunday &&
                   addTask
-                    // @ts-ignore
                     .filter((addTask) => addTask.dia == "7")
                     .map((item, index) => (
                       <div className="inside" key={index}>
                         <div className="hourSunday">
                           <span className="spanHour">
                             {
-                              // @ts-ignore
                               item.hora
                             }
                             <br />
@@ -506,7 +485,6 @@ const Dashboard = (props) => {
                           <div className="lineSunday">
                             <span className="span">
                               {
-                                // @ts-ignore
                                 item.descricao
                               }
                             </span>
@@ -526,7 +504,7 @@ const Dashboard = (props) => {
         </div>
       </main>
     </div>
-    </body>
+    </div>
   );
 };
 
