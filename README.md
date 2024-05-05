@@ -44,6 +44,7 @@ The project was developed using the following technologies
 - CSS
 - Figma
 - SwaggerAPI
+- WeatherAPI
 
 ---
 
